@@ -1,4 +1,11 @@
-﻿using System;
+﻿using Application.Services.Repositories;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+using Persistence.Configurations;
+using Persistence.Contexts;
+using Persistence.Repositories;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +13,24 @@ using System.Threading.Tasks;
 
 namespace Persistence
 {
-    public class PersistenceServiceRegistration
+    public static class PersistenceServiceRegistration
     {
+        public static IServiceCollection AddPersistenceServices(this IServiceCollection services, IConfiguration configuration)
+        {
+            services.AddDbContext<BaseDbContext>(options => options.UseSqlServer(configuration.GetConnectionString("MsSQLServer")));
+            services.AddScoped<IProgrammingLanguageRepository, ProgrammingLanguageRepository>();
+
+            return services;
+        }
+
+        public static IServiceCollection AddPersistenceServices(this IServiceCollection services)
+        {
+            services.AddDbContext<BaseDbContext>(options => options.UseSqlServer(ConnectionString.Get(path:"../WebAPI")));
+            services.AddScoped<IProgrammingLanguageRepository, ProgrammingLanguageRepository>();
+
+            return services;
+        }
+
+
     }
 }

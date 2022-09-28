@@ -6,5 +6,7 @@ namespace WebAPI.Controllers
     public class CommonController : ControllerBase
     {
         protected string Test => "";
+
+
     }
 }

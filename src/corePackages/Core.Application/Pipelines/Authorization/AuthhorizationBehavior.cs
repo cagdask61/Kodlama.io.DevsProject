@@ -18,7 +18,7 @@ namespace Core.Application.Pipelines.Authorization
 
         public AuthorizationBehavior(IHttpContextAccessor httpContextAccessor)
         {
-            HttpContextAccessor = httpContextAccessor;
+            HttpContextAccessor = httpContextAccessor;            
         }
 
         public async Task<TResponse> Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate<TResponse> next)
