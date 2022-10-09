@@ -30,7 +30,5 @@ namespace Persistence
 
             return services;
         }
-
-
     }
 }
