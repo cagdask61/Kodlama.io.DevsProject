@@ -10,6 +10,6 @@ namespace Application.Features.ProgrammingLanguages.Models
 {
     public class ProgrammingLanguageListModel : BasePageableModel
     {
-        IPaginate<ProgrammingLanguageListDto> Items { get; set; }
+        public List<ProgrammingLanguageListDto> Items { get; set; }
     }
 }

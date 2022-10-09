@@ -9,7 +9,7 @@ namespace Persistence.Configurations
 {
     public class ConnectionString
     {
-        public static string Get(string name = "MsSQLServer", string path = "../Presentation/WebAPI",string jsonPath = "appsettings.json")
+        public static string Get(string path, string name = "MsSQLServer", string jsonPath = "appsettings.json")
         {
             ConfigurationManager configurationManager = new();
             configurationManager.SetBasePath(Path.Combine(Directory.GetCurrentDirectory(), path));

@@ -15,9 +15,9 @@ namespace Application.Features.ProgrammingLanguages.Commands.DeleteProgrammingLa
     public class DeleteProgrammingLanguageCommand : IRequest<DeletedProgrammingLanguageDto>
     {
         public int Id { get; set; }
-        public string Name { get; set; }
-        public string Description { get; set; }
-        public bool Status { get; set; }
+        public string? Name { get; set; }
+        public string? Description { get; set; }
+        public bool? Status { get; set; }
 
         public class DeleteProgrammingLanguageCommandHandler : IRequestHandler<DeleteProgrammingLanguageCommand, DeletedProgrammingLanguageDto>
         {
